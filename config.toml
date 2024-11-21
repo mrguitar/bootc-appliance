@@ -1,0 +1,9 @@
+[customizations.installer.kickstart]
+contents = """
+graphical
+
+%post
+bootc switch --mutate-in-place --transport registry quay.io/myuser/myimage
+%end
+"""
+

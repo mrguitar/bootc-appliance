@@ -1,0 +1,6 @@
+#!/bin/sh
+while true; do
+    firefox --profile /var/lib/corehome -kiosk https://time.gov
+done
+
+

@@ -1,1 +1,0 @@
-# bootc-appliance

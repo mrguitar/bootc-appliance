@@ -1,0 +1,19 @@
+[Unit]
+Description=Caddy Quadlet
+
+[Container]
+Image=docker.io/library/caddy:latest
+ContainerName=caddy
+AutoUpdate=registry
+Volume=caddy-data.volume:/data
+Volume=/usr/www:/usr/share/caddy
+PublishPort=80:80
+PublishPort=443:443
+Network=host
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+
+[Install]
+WantedBy=multi-user.target default.target

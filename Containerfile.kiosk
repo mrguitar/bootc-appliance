@@ -1,0 +1,12 @@
+FROM registry.redhat.io/rhel9/rhel-bootc:latest
+
+#install the lamp components
+RUN dnf install -y gnome-kiosk-script-session gdm plymouth-system-theme firefox && dnf clean all
+
+#Boot to graphical environment
+RUN systemctl set-default graphical.target
+
+#copy our config files
+COPY etc etc
+COPY usr usr
+COPY --chmod=0755 --chown=1042:1042 gnome-kiosk-script /usr/lib/
